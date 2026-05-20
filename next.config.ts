@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, // Wajib jika memakai komponen <Image /> bawaan
   },
-  
-  basePath: '/Portfolio-Nirmala', 
+  // Hapus tanda komentar di bawah jika nama repositori Anda BUKAN "username.github.io"
+  // basePath: '/nama-repositori-anda',
 };
 
 export default nextConfig;
