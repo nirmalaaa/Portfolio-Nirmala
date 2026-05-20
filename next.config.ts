@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     unoptimized: true, // Wajib jika memakai komponen <Image /> bawaan
   },
   // Hapus tanda komentar di bawah jika nama repositori Anda BUKAN "username.github.io"
-  // basePath: '/nama-repositori-anda', 
+  // basePath: '/nama-repositori-anda',
 };
 
 export default nextConfig;
