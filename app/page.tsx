@@ -17,7 +17,7 @@ import imgBEM from "@/public/bem.jpg";
 import imgBankSumut from "@/public/banksumut.png";
 import imgAkpar from "@/public/akpar.jpg";
 
-import img1 from "@/public/img_1.jpg";
+import img1 from "@/public/NIRMALA SILALAHI.jpg";
 import img2 from "@/public/img_2.jpg";
 import img3 from "@/public/img_3.jpg";
 import img4 from "@/public/img_4.jpg";
