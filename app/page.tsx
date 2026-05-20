@@ -3,6 +3,29 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import imgProject1 from "@/public/project1.jpg";
+import imgProject2 from "@/public/project2.jpeg";
+import imgProject3 from "@/public/project3.jpg";
+import imgProject4 from "@/public/project4.jpg";
+import imgProject5 from "@/public/project5.png";
+import imgProject6 from "@/public/project6.jpg";
+import imgProject7 from "@/public/project7.jpg";
+import imgProject8 from "@/public/project8.jpg";
+
+import imgUSU from "@/public/usu.png";
+import imgBEM from "@/public/bem.jpg";
+import imgBankSumut from "@/public/banksumut.png";
+import imgAkpar from "@/public/akpar.jpg";
+
+import img1 from "@/public/img_1.jpg";
+import img2 from "@/public/img_2.jpg";
+import img3 from "@/public/img_3.jpg";
+import img4 from "@/public/img_4.jpg";
+import img5 from "@/public/img_5.jpg";
+
+import imgCanva from "@/public/canva-icon.png";
+
+import Image from "next/image";
 import {
   SiFigma,
   SiNextdotjs,
@@ -34,7 +57,7 @@ const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
 const projects = [
   {
-    image: "/project1.jpg",
+    image: imgProject1,
 
     title: "Vitality",
 
@@ -56,7 +79,7 @@ const projects = [
   },
 
   {
-    image: "/project2.jpeg",
+    image: imgProject2,
 
     title: "Finance Tracker",
 
@@ -79,7 +102,7 @@ const projects = [
   },
 
   {
-    image: "/project3.jpg",
+    image: imgProject3,
 
     title: "THIS (Things I Couldnt Said)",
 
@@ -99,7 +122,7 @@ const projects = [
   },
 
   {
-    image: "/project4.jpg",
+    image: imgProject4,
 
     title: "BioPrint",
 
@@ -120,7 +143,7 @@ const projects = [
   },
 
    {
-    image: "/project5.png",
+    image: imgProject5,
 
     title: "Momu Playlist",
 
@@ -141,7 +164,7 @@ const projects = [
   },
 
      {
-    image: "/project6.jpg",
+    image: imgProject6,
 
     title: "Bank Sampah",
 
@@ -162,7 +185,7 @@ const projects = [
   },
 
      {
-    image: "/project7.jpg",
+    image: imgProject7,
 
     title: "PINTAR",
 
@@ -183,7 +206,7 @@ const projects = [
   },
 
      {
-    image: "/project8.jpg",
+    image: imgProject8,
 
     title: "USU Circula",
 
@@ -249,7 +272,7 @@ const toolsTop = [
 
   {
     name: "Canva",
-    icon: "/canva-icon.png",
+    icon: imgCanva,
   },
 
   {
@@ -336,11 +359,11 @@ const toolsBottom = [
 ];
 
   const photos = [
-    "/img_1.jpg",
-    "/img_2.jpg",
-    "/img_3.jpg",
-    "/img_4.jpg",
-    "/img_5.jpg",
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
   ];
 
   const [index, setIndex] = useState(0);
@@ -1061,58 +1084,65 @@ const toolsBottom = [
         style={{ perspective: 1000 }}
       >
 
-        {photos.map((photo, i) => {
+    {photos.map((photo, i) => {
 
-          const offset = (i - index + photos.length) % photos.length;
+      const offset = (i - index + photos.length) % photos.length;
 
-          if (offset > 2) return null;
+      if (offset > 2) return null;
 
-          return (
-            <motion.img
-              key={photo}
-              src={photo}
-              alt="profile"
+      return (
+        <motion.img
+          key={photo.src}
+          src={photo.src}
+          alt="profile"
 
-              drag={offset === 0 ? "x" : false}
+          drag={offset === 0 ? "x" : false}
 
-              dragConstraints={{
-                left: 0,
-                right: 0,
-              }}
+          dragConstraints={{
+            left: 0,
+            right: 0,
+          }}
 
-              onDragEnd={(event, info) => {
-                if (
-                  offset === 0 &&
-                  (info.offset.x > 120 || info.offset.x < -120)
-                ) {
-                  nextPhoto();
-                }
-              }}
+          onDragEnd={(event, info) => {
+            if (
+              offset === 0 &&
+              (info.offset.x > 120 || info.offset.x < -120)
+            ) {
+              nextPhoto();
+            }
+          }}
 
-              animate={{
-                scale: 1 - offset * 0.05,
-                y: offset * 18,
-                rotate: offset === 0 ? 0 : offset % 2 === 0 ? -6 : 6,
-                zIndex: 10 - offset,
-                opacity: 1 - offset * 0.15,
-              }}
+          animate={{
+            scale: 1 - offset * 0.05,
+            y: offset * 18,
+            rotate: offset === 0 ? 0 : offset % 2 === 0 ? -6 : 6,
+            zIndex: 10 - offset,
+            opacity: 1 - offset * 0.15,
+          }}
 
-              whileDrag={{
-                rotate: 10,
-                scale: 1.03,
-                cursor: "grabbing",
-              }}
+          whileDrag={{
+            rotate: 10,
+            scale: 1.03,
+            cursor: "grabbing",
+          }}
 
-              transition={{
-                type: "spring",
-                stiffness: 220,
-                damping: 20,
-              }}
+          transition={{
+            type: "spring",
+            stiffness: 220,
+            damping: 20,
+          }}
 
-              className="absolute w-full h-full object-cover rounded-[26px] md:rounded-[30px] shadow-[0_20px_60px_rgba(0,0,0,0.12)] cursor-grab"
-            />
-          );
-        })}
+          className="
+            absolute
+            w-full h-full
+            object-cover
+            rounded-[26px] md:rounded-[30px]
+            shadow-[0_20px_60px_rgba(0,0,0,0.12)]
+            cursor-grab
+          "
+        />
+      );
+    })}
 
       </div>
 
@@ -1331,18 +1361,17 @@ const toolsBottom = [
             {/* GLOW */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#FFDCE8]/20 via-transparent to-[#DCE8FF]/20 z-10 pointer-events-none" />
 
-            <img
-              src={project.image}
-              alt={project.title}
-              className="
-                w-full
-                h-[320px] md:h-[520px]
-                object-cover
-                transition duration-700
-                group-hover:scale-[1.04]
-              "
-            />
-
+          <Image
+            src={project.image}
+            alt={project.title}
+            className="
+              w-full
+              h-[320px] md:h-[520px]
+              object-cover
+              transition duration-700
+              group-hover:scale-[1.04]
+            "
+          />
             {/* FLOATING LABEL */}
             <div
               className="
@@ -1739,7 +1768,7 @@ const toolsBottom = [
           title: "Universitas Sumatera Utara",
           role: "Bachelor Degree Computer Science",
           desc: "Studied at the Faculty of Computer Science and Information Technology, Universitas Sumatera Utara, with a focus on UI/UX design, frontend development, and digital product experiences. Graduating in 2026 while actively exploring creative technology and modern interface design.",
-          logo: "/usu.png",
+          logo: imgUSU,
         },
 
         {
@@ -1747,7 +1776,7 @@ const toolsBottom = [
           title: "Akademi Pariwista Paramitha Jakarta",
           role: "Freelance",
           desc: "Worked as a web developer while also creating promotional campaign content and national-day social media posts for the campus. Contributed to digital branding, visual communication, and frontend implementation.",
-          logo: "/akpar.jpg",
+          logo: imgAkpar,
         },
 
         {
@@ -1755,7 +1784,7 @@ const toolsBottom = [
           title: "BEM Fasilkom-TI USU",
           role: "General Secretary",
           desc: "Managed organizational archives, meeting minutes, official documents, and correspondence including incoming and outgoing letters. Responsible for maintaining structured administration and supporting internal organizational operations.",
-          logo: "/bem.jpg",
+          logo: imgBEM,
         },
 
         {
@@ -1763,7 +1792,7 @@ const toolsBottom = [
           title: "PT. Bank Sumatera Utara",
           role: "Internship",
           desc: "Developed a tuition payment monitoring website displaying payment status, nominal details, and verification information. Also handled network inventory management and administrative data processing using Excel.",
-          logo: "/banksumut.png",
+          logo: imgBankSumut,
         },
 
  
@@ -1850,15 +1879,17 @@ const toolsBottom = [
                 "
               >
 
-                <img
-                  src={item.logo}
-                  alt={item.title}
-                  className="
-                    w-12 h-12
-                    md:w-14 md:h-14
-                    object-contain
-                  "
-                />
+              <Image
+                src={item.logo}
+                alt={item.title}
+                className="
+                  relative z-10
+                  w-10 h-10
+                  md:w-12 md:h-12
+                  object-contain
+                  opacity-90
+                "
+              />
 
               </motion.div>
 
@@ -1990,11 +2021,15 @@ const toolsBottom = [
             "
           >
 
-            <img
-              src={tool.icon}
-              alt={tool.name}
-              className="w-16 h-16 object-contain"
-            />
+          <img
+            src={
+              typeof tool.icon === "string"
+                ? tool.icon
+                : tool.icon.src
+            }
+            alt={tool.name}
+            className="w-16 h-16 object-contain"
+          />
 
             <p className="mt-4 uppercase tracking-[3px] text-[11px] text-white/50">
               {tool.name}
